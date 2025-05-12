@@ -12,4 +12,4 @@ COPY data.csv .
 RUN pip install --no-cache-dir pymysql pandas
 
 # Comando por defecto
-CMD ["python", "insertar_csv_mysql.py"]
+CMD ["python", "ingesta.py"]
