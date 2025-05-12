@@ -6,7 +6,7 @@ df = pd.read_csv("data.csv")
 
 # Conectar a MySQL
 conn = pymysql.connect(
-    host='172.31.26.21',
+    host='54.227.17.26 ',
     port=3307,
     user='utec',
     password='1234',
