@@ -5,7 +5,7 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Copiar script y CSV al contenedor
-COPY insertar_csv_mysql.py .
+COPY ingesta.py .
 COPY data.csv .
 
 # Instalar dependencias directamente
