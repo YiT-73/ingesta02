@@ -6,7 +6,7 @@ df = pd.read_csv("data.csv")
 
 # Conectar a MySQL
 conn = pymysql.connect(
-    host='mysql_datos',
+    host='host.docker.internal',
     port=3307,
     user='root',
     password='1234',
