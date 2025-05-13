@@ -13,23 +13,16 @@ conn = pymysql.connect(
     database='empresa'
 )
 
-cursor = conn.cursor()
-
-# Crear tabla si no existe
-cursor.execute("""
-    CREATE TABLE IF NOT EXISTS empleados (
-        id INT PRIMARY KEY AUTO_INCREMENT,
-        nombre VARCHAR(100),
-        correo VARCHAR(100)
-    );
-""")
-
-# Insertar filas del CSV
-for index, row in df.iterrows():
-    cursor.execute("INSERT INTO empleados (nombre, correo) VALUES (%s, %s)", (row['nombre'], row['correo']))
-
-conn.commit()
-cursor.close()
+# Leer los datos
+df = pd.read_sql("SELECT * FROM empleados", conn)
 conn.close()
 
-print("✅ Datos del CSV insertados en la tabla empleados.")
+# Guardar como CSV
+csv_file = "data.csv"
+df.to_csv(csv_file, index=False)
+
+# Subir a S3
+s3 = boto3.client('s3')
+s3.upload_file(csv_file, "gcr-output-01", csv_file)
+
+print("Ingesta completada desde MySQL")
