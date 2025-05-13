@@ -23,6 +23,6 @@ df.to_csv(csv_file, index=False)
 
 # Subir a S3
 s3 = boto3.client('s3')
-s3.upload_file(csv_file, "gcr-output-01", csv_file)
+s3.upload_file(csv_file, "yit-output-02", csv_file)
 
 print("Ingesta completada desde MySQL")
