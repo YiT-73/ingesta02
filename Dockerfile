@@ -9,7 +9,7 @@ COPY ingesta.py .
 COPY data.csv .
 
 # Instalar dependencias directamente
-RUN pip install --no-cache-dir pymysql pandas
+RUN pip install --no-cache-dir pymysql pandas boto3
 
 # Comando por defecto
 CMD ["python", "ingesta.py"]
