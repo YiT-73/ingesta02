@@ -8,7 +8,7 @@ df = pd.read_csv("data.csv")
 conn = pymysql.connect(
     host='host.docker.internal',
     port=3307,
-    user='utec',
+    user='root',
     password='1234',
     database='empresa'
 )
