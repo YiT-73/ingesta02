@@ -1,6 +1,6 @@
-import pymysql
 import pandas as pd
-
+import pymysql
+import boto3
 # Leer archivo CSV
 df = pd.read_csv("data.csv")
 
